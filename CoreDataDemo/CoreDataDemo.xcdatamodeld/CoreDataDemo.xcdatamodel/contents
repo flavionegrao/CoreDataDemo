@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="7701" systemVersion="14E46" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Autor" representedClassName="Autor" syncable="YES">
+        <attribute name="nascimento" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sobrenome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="livros" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="Livro" inverseName="autor" inverseEntity="Livro" syncable="YES"/>
+    </entity>
+    <entity name="Editora" representedClassName="Editora" syncable="YES">
+        <attribute name="cnpj" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="livros" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Livro" inverseName="editora" inverseEntity="Livro" syncable="YES"/>
+    </entity>
+    <entity name="Livro" representedClassName="Livro" syncable="YES">
+        <attribute name="isbn" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="titulo" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="autor" maxCount="1" deletionRule="Nullify" destinationEntity="Autor" inverseName="livros" inverseEntity="Autor" syncable="YES"/>
+        <relationship name="editora" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Editora" inverseName="livros" inverseEntity="Editora" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Autor" positionX="-243" positionY="81" width="128" height="103"/>
+        <element name="Editora" positionX="97" positionY="92" width="128" height="88"/>
+        <element name="Livro" positionX="-81" positionY="-63" width="128" height="103"/>
+    </elements>
+</model>
